@@ -42,15 +42,15 @@ class MusicPlayer:
         return False
 
     def add(self, song: Song) -> bool:
-        # If the song is not already present
         if not self.search_library(song):
-            # Add the song to the library
             self.library.append(song)
-            # Return true as the song was added
             return True
 
-        # Return false as the song could not be added
         return False
+
+    def display_library(self):
+        for song in self.library:
+            print(f"{song.title} by {song.artist}")
 
     def get_random_song(self) -> Song | None:
         if not self.library:
