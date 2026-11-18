@@ -27,3 +27,16 @@ for person in staff:
         print(f"{person.fName} is a staff member")
     else:
         print(f"\"{person}\" is not a Staff instance")
+
+print("*"*20)
+# This sort of type filtering can also be achieved using a match case statement!
+for person in staff:
+    match person:
+        case FullTimeStaff():
+            print(f"{person.fName} is a full-time staff member")
+        case PartTimeStaff():
+            print(f"{person.fName} is a part-time staff member.")
+        case Staff():
+            print(f"{person.fName} is a staff member")
+        case _:
+            print(f"\"{person}\" is not any form of Staff instance")
